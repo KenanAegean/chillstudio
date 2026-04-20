@@ -1723,3 +1723,31 @@ h2 em {
     font-size: clamp(2.4rem, 10vw, 3.5rem);
   }
 }
+
+
+/* ----------------------------------------------------------------
+   19. CLICK ECHO RINGS
+   ---------------------------------------------------------------- */
+.click-echo {
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.click-echo__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--clr-echo-dim);
+  opacity: 0;
+  animation: echoRipple 4s var(--ease-in-out) forwards;
+}
+
+.click-echo__ring--1 { width: 110px; height: 110px; animation-delay: 0.0s; }
+.click-echo__ring--2 { width: 224px; height: 224px; animation-delay: 0.5s; }
+.click-echo__ring--3 { width: 378px; height: 378px; animation-delay: 1.0s; }
+.click-echo__ring--4 { width: 560px; height: 560px; animation-delay: 1.5s; }

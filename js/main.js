@@ -274,3 +274,30 @@
     history.pushState(null, '', targetId);
   });
 })();
+
+
+/* ================================================================
+   7. CLICK ECHO RINGS
+   Spawns 4 rings identical to the hero sonar rings, centered on
+   each click. Uses the same echoRipple keyframes, runs forwards.
+   ================================================================ */
+(function initClickEcho() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.addEventListener('click', e => {
+    const container = document.createElement('div');
+    container.className = 'click-echo';
+    container.style.left = e.pageX + 'px';
+    container.style.top  = e.pageY + 'px';
+
+    for (let i = 1; i <= 4; i++) {
+      const ring = document.createElement('div');
+      ring.className = `click-echo__ring click-echo__ring--${i}`;
+      container.appendChild(ring);
+    }
+
+    document.body.appendChild(container);
+    // Longest ring: 1.5s delay + 4s duration = 5.5s
+    setTimeout(() => container.remove(), 5600);
+  });
+})();
