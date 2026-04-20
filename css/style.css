@@ -606,11 +606,11 @@ h2 em {
 /* ── Echolocation Ring Animation ── */
 .echo-container {
   position: absolute;
-  right: 12%;
+  right: 25%;
   top: 50%;
   transform: translateY(-50%);
-  width: 400px;
-  height: 400px;
+  width: 560px;
+  height: 560px;
   display: grid;
   place-items: center;
   pointer-events: none;
@@ -624,10 +624,10 @@ h2 em {
   animation: echoRipple 4s var(--ease-in-out) infinite;
 }
 
-.echo-ring--1 { width:  80px; height:  80px; animation-delay: 0.0s; }
-.echo-ring--2 { width: 160px; height: 160px; animation-delay: 0.5s; }
-.echo-ring--3 { width: 270px; height: 270px; animation-delay: 1.0s; }
-.echo-ring--4 { width: 400px; height: 400px; animation-delay: 1.5s; }
+.echo-ring--1 { width: 110px; height: 110px; animation-delay: 0.0s; }
+.echo-ring--2 { width: 224px; height: 224px; animation-delay: 0.5s; }
+.echo-ring--3 { width: 378px; height: 378px; animation-delay: 1.0s; }
+.echo-ring--4 { width: 560px; height: 560px; animation-delay: 1.5s; }
 
 @keyframes echoRipple {
   0%   { opacity: 0;    transform: scale(0.6); }
@@ -655,7 +655,7 @@ h2 em {
   position: relative;
   z-index: 2;
   padding: 0 var(--section-px) clamp(3rem, 8vh, 6rem);
-  max-width: min(700px, 55vw);
+  max-width: min(800px, 62vw);
 }
 
 .hero-eyebrow {
@@ -686,7 +686,7 @@ h2 em {
 
 .hero-title-logo {
   display: block;
-  max-width: min(520px, 80vw);
+  max-width: min(640px, 80vw);
   height: auto;
   filter: drop-shadow(0 4px 32px rgba(0,0,0,0.8));
 }
@@ -1151,14 +1151,10 @@ h2 em {
   margin: 0 auto;
 }
 
-/* Irregular 4-zone grid — intentionally not a uniform 3-column layout */
+/* Uniform 2x2 grid */
 .screenshots-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "wide tall"
-    "small1 small2";
+  grid-template-columns: repeat(2, 1fr);
   gap: 3px;
 }
 
@@ -1167,6 +1163,7 @@ h2 em {
   overflow: hidden;
   background-color: var(--clr-surface);
   cursor: pointer;
+  aspect-ratio: 16 / 9; /* Adjust this if your screenshots are 4:3 or another ratio */
 }
 
 .shot img {
@@ -1701,11 +1698,6 @@ h2 em {
   /* Screenshots grid — single column */
   .screenshots-grid {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "wide"
-      "tall"
-      "small1"
-      "small2";
   }
 
   .shot--wide,
